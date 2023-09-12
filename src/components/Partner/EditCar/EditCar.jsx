@@ -21,18 +21,15 @@ const EditCar = () => {
     e.preventDefault();
     try {
       const formData = new FormData();
-    for (const key in editedData) {
-      if (key === 'image') {
-        formData.append(key, editedData[key]); 
-      } else {
-        formData.append(key, editedData[key]);
+      for (const key in editedData) {
+        if (key === "image") {
+          formData.append(key, editedData[key]);
+        } else {
+          formData.append(key, editedData[key]);
+        }
       }
-    }
-      const response = await AxiosPartner.put(
-        `/EditCar/${data._id}`,
-        formData,
-      );
-      if(response.data.success){
+      const response = await AxiosPartner.put(`/EditCar/${data._id}`, formData);
+      if (response.data.success) {
         toast.success("Car updated successfully!");
       }
     } catch (error) {
@@ -69,7 +66,11 @@ const EditCar = () => {
             <h1 className=" text-center font-extrabold text-[#00df9a]">
               EDIT CAR
             </h1>
-            <form action="" onSubmit={handleFormSubmit} enctype="multipart/form-data">
+            <form
+              action=""
+              onSubmit={handleFormSubmit}
+              enctype="multipart/form-data"
+            >
               <div className="relative z-0 w-full mb-6 group mt-2">
                 <input
                   type="name"
@@ -266,9 +267,8 @@ const EditCar = () => {
                   className="block w-[330px] text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                   id="file_input"
                   type="file"
-                  name="images"
+                  name="images[]"
                   onChange={handleImageChange}
-                  
                 />
                 <img className="w-[150px]" src={data?.Images} alt="" />
               </div>
