@@ -1,6 +1,6 @@
 import React from "react";
 
-const Notfount = () => {
+const Notfound = () => {
   return (
     <div>
       <div class="bg-gray-100">

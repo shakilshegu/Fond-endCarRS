@@ -18,6 +18,7 @@ import Rating from "../components/User/RatingandReview/Rating.jsx";
 import Chats from "../components/User/Chats/Chats";
 import Invoice from "../components/User/Invoice/Invoice";
 import CurrentOrders from "../components/User/Orders/CurrentOrders";
+import NotFound from "../404";
 
 const UserRoute = () => {
   const { loading } = useSelector((state) => state.alerts);
@@ -139,6 +140,7 @@ const UserRoute = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

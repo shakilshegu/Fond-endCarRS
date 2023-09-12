@@ -12,7 +12,7 @@ import Chates from "../components/Admin/Chats/Chates";
 import Orders from "../components/Admin/Orders/Orders";
 import Dashpage from "../components/Admin/DashBord/Dashbord.jsx";
 import Profile from "../components/Admin/Profile/Profile";
-
+import NotFound from "../404";
 function AdminRoute() {
   return (
     <div>
@@ -103,6 +103,8 @@ function AdminRoute() {
             </ProtectedRouteAdmin>
           }
         />
+        {/* This route will catch all other undefined routes */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
