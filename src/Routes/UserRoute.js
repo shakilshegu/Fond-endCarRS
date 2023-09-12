@@ -14,7 +14,7 @@ import FullviewCar from "../components/User/Fullviewcar/FullviewCar";
 import EditUserprofile from "../components/User/EditUserprofile/EditUserprofile";
 import PaymentSuccess from "../components/User/PaymentSucces/paymentSuccess";
 import Otppage from "../components/User/OTP/Otppage";
-import Rating from "../components/User/RatingandReview/Rating.jsx"
+import Rating from "../components/User/RatingandReview/Rating.jsx";
 import Chats from "../components/User/Chats/Chats";
 import Invoice from "../components/User/Invoice/Invoice";
 import CurrentOrders from "../components/User/Orders/CurrentOrders";
@@ -75,15 +75,70 @@ const UserRoute = () => {
             </ProtectedRoute>
           }
         />
-        <Route path="/EditUserprofile" element={<EditUserprofile />} />
-        <Route path="/BookingHistory" element={<BookingHistory />} />
-        <Route path="/Success" element={<PaymentSuccess />} />
-        <Route path="/Otppage" element={<Otppage />} />
-        <Route path="/Rating" element={<Rating/>} />
-        <Route path="/Chats" element={<Chats/>} />
-        <Route path="/Invoice" element={<Invoice/>} />
-        <Route path="/Orders" element={<CurrentOrders/>} />
-
+        <Route
+          path="/EditUserprofile"
+          element={
+            <ProtectedRoute>
+              <EditUserprofile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/BookingHistory"
+          element={
+            <ProtectedRoute>
+              <BookingHistory />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/Success"
+          element={
+            <ProtectedRoute>
+              <PaymentSuccess />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/Otppage"
+          element={
+            <ProtectedRoute>
+              <Otppage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/Rating"
+          element={
+            <ProtectedRoute>
+              <Rating />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/Chats"
+          element={
+            <ProtectedRoute>
+              <Chats />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/Invoice"
+          element={
+            <ProtectedRoute>
+              <Invoice />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/Orders"
+          element={
+            <ProtectedRoute>
+              <CurrentOrders />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   );

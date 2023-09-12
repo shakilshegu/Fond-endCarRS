@@ -12,7 +12,9 @@ const BookingHistory = () => {
   const usertoken = localStorage.getItem("token");
   const headers = { authorization: usertoken };
   const [bookingData, setBookingData] = useState([]);
+
   const [userReviews, setUserReviews] = useState([]);
+  const [bookingId, setBookingId] = useState();
 
   const [currentPage, setCurrentPage] = useState(1);
   const bookingsPerPage = 5;
@@ -22,10 +24,13 @@ const BookingHistory = () => {
   const endIndex = startIndex + bookingsPerPage;
   const paginatedBookings = bookingData.slice(startIndex, endIndex);
 
+
   const [showModal, setShowModal] = useState(false);
   const [cancellationReason, setCancellationReason] = useState("");
 
   const handleCancelBooking = (bookingId) => {
+    setBookingId(bookingId)
+
     setShowModal(true);
   };
 
@@ -60,6 +65,25 @@ const BookingHistory = () => {
       toast.error("Something went wrong");
     }
   };
+
+  const postCancellation = async () => {
+    try {
+      const response = await AxiosUser.post(
+        `cancellation`,
+        { bookingId: bookingId, reason: cancellationReason },
+        { headers }
+      );
+      if (response.data.success) {
+        toast.success(response.data.message);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      toast.error("Something went wrong");
+    }
+  };
+
+  
 
   useEffect(() => {
     getData();
@@ -118,12 +142,13 @@ const BookingHistory = () => {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+
                     {paginatedBookings.map((booking, index) => (
                       <tr key={index}>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium dark:text-black">
                           <img
                             className="w-[120px]"
-                            src={booking.CarId.Images}
+                            src={booking.CarId.Images[0]}
                             alt=""
                           />
                         </td>
@@ -140,7 +165,7 @@ const BookingHistory = () => {
                           {booking.status !== "delivered" && (
                             <button
                               className="text-blue-500 hover:text-blue-700 mr-2"
-                              onClick={() => handleCancelBooking(booking.id)}
+                              onClick={() => handleCancelBooking(booking._id)}
                             >
                               Cancel
                             </button>
@@ -200,7 +225,11 @@ const BookingHistory = () => {
                         </button>
                         <button
                           className="px-3 py-1 border rounded text-green-500 hover:text-green-700"
-                          // onClick={() => handleSubmitCancellation(bookingId)}
+                          onClick={() => {
+                            postCancellation();
+                            setBookingId();
+                            handleCloseModal()
+                          }}
                         >
                           Submit
                         </button>
