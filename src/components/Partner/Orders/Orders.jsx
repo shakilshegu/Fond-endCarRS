@@ -146,6 +146,9 @@ const Orders = () => {
                         Location
                       </th>
                       <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        pick up & drop locations
+                      </th>
+                      <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                         Booking Date
                       </th>
                       <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -167,7 +170,7 @@ const Orders = () => {
                             <div className="flex">
                               <img
                                 className="w-[150px]"
-                                src={data.CarId.Images}
+                                src={data.CarId.Images[0]}
                                 alt=""
                               />
                             </div>
@@ -188,6 +191,14 @@ const Orders = () => {
                             {data?.location}
                           </p>
                         </td>
+                        <td className=" px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                          <p className="text-gray-900 whitespace-no-wrap flex">
+                           pick: {data?.pickuplocation}
+                          </p>
+                          <p className="text-gray-900 whitespace-no-wrap">
+                           Drope: {data?.Dropeuplocation}
+                          </p>
+                        </td>
                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                           <p className="text-gray-900 whitespace-no-wrap">
                             {format(new Date(data?.startDate), "MMMM dd, yyyy")}
@@ -205,39 +216,40 @@ const Orders = () => {
                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                           <div className="relative">
                             <select
-                              className="h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block appearance-none w-[100px] bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500"
+                              className="h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block appearance-none w-[110px] bg-green-200 border-red-600 text-black py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500"
                               onChange={(e) =>
                                 handleStatusChange(data._id, e.target.value)
                               }
                             >
-                              {data.status === "confirmed" ? (
+                              {data.status === "pending" && (
                                 <>
-                                  <option value="confirmed">Approved</option>
+                                  <option value="" selected>
+                                    Unapproved
+                                  </option>
                                   <option value="canceled">Cancel</option>
+                                  <option value="confirmed">Approved</option>
+                                </>
+                              )}
+                              {data.status === "confirmed" && (
+                                <>
+                                  <option
+                                    value=""
+                                    className="text-green-600 font-extrabold"
+                                    selected
+                                  >
+                                    Confirmed
+                                  </option>
                                   <option value="delivered">Delivered</option>
                                 </>
-                              ) : data.status === "delivered" ? (
-                                <option value="delivered">Delivered</option>
-                              ) : (
+                              )}
+                              {data.status === "delivered" && (
                                 <>
-                                  {data.status === "pending" ? (
-                                    <option
-                                      className="bg-red-600"
-                                      value="pending"
-                                    >
-                                      Unapproved
-                                    </option>
-                                  ) : (
-                                    <option
-                                      className="bg-white"
-                                      value="confirmed"
-                                    >
-                                      Approved
-                                    </option>
-                                  )}
-                                  <option value="confirmed">Approved</option>
-                                  <option value="canceled">Cancel</option>
-                                  <option value="delivered">Delivered</option>
+                                  <option selected>Delivered</option>
+                                </>
+                              )}
+                               {data.status === "canceled" && (
+                                <>
+                                  <option selected>canceled</option>
                                 </>
                               )}
                             </select>

@@ -24,12 +24,11 @@ const BookingHistory = () => {
   const endIndex = startIndex + bookingsPerPage;
   const paginatedBookings = bookingData.slice(startIndex, endIndex);
 
-
   const [showModal, setShowModal] = useState(false);
   const [cancellationReason, setCancellationReason] = useState("");
 
   const handleCancelBooking = (bookingId) => {
-    setBookingId(bookingId)
+    setBookingId(bookingId);
 
     setShowModal(true);
   };
@@ -82,8 +81,6 @@ const BookingHistory = () => {
       toast.error("Something went wrong");
     }
   };
-
-  
 
   useEffect(() => {
     getData();
@@ -142,7 +139,6 @@ const BookingHistory = () => {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-
                     {paginatedBookings.map((booking, index) => (
                       <tr key={index}>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium dark:text-black">
@@ -173,9 +169,12 @@ const BookingHistory = () => {
                           {booking.status === "delivered" ? (
                             <>
                               {booking.RatingId ? (
-                                <div>
-                                  <h1 className="text-base">Already Rated</h1>
-                                </div>
+                                <button
+                                  className="text-yellow-500 hover:text-yellow-700"
+                                  onClick={() => handledetail(booking)}
+                                >
+                                  Edit Review
+                                </button>
                               ) : (
                                 <button
                                   className="text-yellow-500 hover:text-yellow-700"
@@ -228,7 +227,7 @@ const BookingHistory = () => {
                           onClick={() => {
                             postCancellation();
                             setBookingId();
-                            handleCloseModal()
+                            handleCloseModal();
                           }}
                         >
                           Submit
