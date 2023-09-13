@@ -19,6 +19,7 @@ import Chats from "../components/User/Chats/Chats";
 import Invoice from "../components/User/Invoice/Invoice";
 import CurrentOrders from "../components/User/Orders/CurrentOrders";
 import NotFound from "../404";
+import Constacts from "../components/User/Contacts/Constacts";
 
 const UserRoute = () => {
   const { loading } = useSelector((state) => state.alerts);
@@ -140,6 +141,7 @@ const UserRoute = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="/Constacts" element={<Constacts />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

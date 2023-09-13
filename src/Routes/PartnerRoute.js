@@ -30,13 +30,63 @@ function PartnerRoute() {
         />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/addCar" element={<AddCarform />} />
-        <Route path="/ViewCar" element={<ViewCar />} />
-        <Route path="/PartnerProfile" element={<PartnerProfile />} />
-        <Route path="/EditCar" element={<EditCar />} />
-        <Route path="/FullViewCar" element={<FullViewCar />} />
-        <Route path="/Orders" element={<Orders />} />
-        <Route path="/Editprofile" element={<Editprofile />} />
+
+        <Route
+          path="/addCar"
+          element={
+            <ProtectedRoutepartner>
+              <AddCarform />
+            </ProtectedRoutepartner>
+          }
+        />
+        <Route
+          path="/ViewCar"
+          element={
+            <ProtectedRoutepartner>
+              <ViewCar />
+            </ProtectedRoutepartner>
+          }
+        />
+        <Route
+          path="/PartnerProfile"
+          element={
+            <ProtectedRoutepartner>
+              <PartnerProfile />
+            </ProtectedRoutepartner>
+          }
+        />
+        <Route
+          path="/EditCar"
+          element={
+            <ProtectedRoutepartner>
+              <EditCar />
+            </ProtectedRoutepartner>
+          }
+        />
+        <Route
+          path="/FullViewCar"
+          element={
+            <ProtectedRoutepartner>
+              <FullViewCar />
+            </ProtectedRoutepartner>
+          }
+        />
+        <Route
+          path="/Orders"
+          element={
+            <ProtectedRoutepartner>
+              <Orders />
+            </ProtectedRoutepartner>
+          }
+        />
+        <Route
+          path="/Editprofile"
+          element={
+            <ProtectedRoutepartner>
+              <Editprofile />
+            </ProtectedRoutepartner>
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

@@ -6,7 +6,9 @@ import { toast } from "react-hot-toast";
 import Footer from "../Footer/Footer";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useNavigate } from "react-router-dom";
-import {Carousel} from "react-responsive-carousel"
+import { Carousel } from "react-responsive-carousel";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTicketAlt } from "@fortawesome/free-solid-svg-icons";
 
 const FullviewCar = () => {
   const [ratingData, setRatingData] = useState("");
@@ -17,6 +19,30 @@ const FullviewCar = () => {
   const [bookingMessage, setBookingMessage] = useState("");
   const [pickLocation, setpickLocation] = useState("");
   const [DropeLocation, setDropeLocation] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [couponCode, setCouponCode] = useState("");
+  const [couponApplied, setCouponApplied] = useState(false);
+
+  const handleCouponCodeChange = (e) => {
+    setCouponCode(e.target.value);
+  };
+
+  const applyCoupon = () => {
+    if (couponApplied) {
+      toast.error("Coupon has already been applied.");
+    } else if (couponCode === "TAILOFFER10") {
+      const discountAmount = 0.1;
+      const discountedTotalAmount = totalAmount - totalAmount * discountAmount;
+      setTotalAmount(discountedTotalAmount);
+      setIsModalOpen(false);
+      setCouponApplied(true);
+      toast.success("Succesuss fully applaid coupen ");
+    } else {
+      toast.error("Invalid coupon code. Please enter a valid code.");
+    }
+
+  };
 
   const location = useLocation();
   const data = location.state;
@@ -171,19 +197,19 @@ const FullviewCar = () => {
       <div className="mt-8 w-full bg-white py-16 px-4">
         <div className="max-w-[1240px] mx-auto grid md:grid-cols-2">
           <div class="max-w-2xl mx-auto mt-3 mr-6 ">
-          <Carousel className="w-[600px] ">
-                <div>
-                    <img className="rounded-lg" src={data.Images[0]} />
-                    <p className="legend">BMW M3 </p>
-                </div>
-                <div>
-                    <img className="rounded-lg" src={data.Images[1]}/>
-                    <p className="legend"> Inderior</p>
-                </div>
-                <div>
-                    <img className="rounded-lg" src={data.Images[2]}/>
-                    <p className="legend"> Door Inderior</p>
-                </div>
+            <Carousel className="w-[600px] ">
+              <div>
+                <img className="rounded-lg" src={data.Images[0]} />
+                <p className="legend">BMW M3 </p>
+              </div>
+              <div>
+                <img className="rounded-lg" src={data.Images[1]} />
+                <p className="legend"> Inderior</p>
+              </div>
+              <div>
+                <img className="rounded-lg" src={data.Images[2]} />
+                <p className="legend"> Door Inderior</p>
+              </div>
             </Carousel>
           </div>
           <div className="flex flex-col justify-center">
@@ -302,6 +328,19 @@ const FullviewCar = () => {
                 </div>
               </div>
             </div>
+
+            <div className="flex">
+              <div className="ml-4 w-[250px]">
+                <button
+                  onClick={() => setIsModalOpen(!isModalOpen)}
+                  className=" text-red-600 w-[200px] h-10  font-medium my-4 transition-transform transform hover:scale-105 hover:bg-[#00bf8a] hover:text-white hover:shadow-lg hover:rotate-2 hover:border-[#00df9a]   flex items-center justify-center" 
+                >
+                  <FontAwesomeIcon icon={faTicketAlt} className="mr-2" />
+                  Apply Coupon
+                </button>
+              </div>
+            </div>
+
             {bookingMessage && (
               <p className="mt-4 text-red-500">{bookingMessage}</p>
             )}
@@ -316,6 +355,42 @@ const FullviewCar = () => {
           </div>
         </div>
       </div>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div className="modal-overlay absolute bg-black opacity-10"></div>
+          <div className="container bg-gradient-to-r from-indigo-500 to-violet-500 text-white p-8 rounded-lg shadow-lg max-w-md mx-auto">
+            <div className="text-3xl font-bold mb-4">Special Offer!</div>
+            <div className="text-lg mb-4">
+              Get <span className="text-yellow-400 font-bold">10% OFF</span>{" "}
+              your next purchase!
+            </div>
+            <div className="text-base mb-4">Use coupon code:TAILOFFER10</div>
+            <div className="bg-white text-gray-800 rounded-lg px-4 py-2 flex items-center justify-between">
+              <input
+                type="text"
+                value={couponCode}
+                onChange={handleCouponCodeChange}
+                placeholder="Enter coupon code"
+                className="w-full px-3 py-1 outline-none"
+              />
+              <button
+                onClick={applyCoupon}
+                className="bg-blue-800 text-white px-3 py-1 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                Apply
+              </button>
+            </div>
+            <div className="text-sm mt-4">
+              <p>
+                Valid until{" "}
+                <span className="font-semibold">December 31, 2023</span>
+              </p>
+              <p>Terms and conditions apply.</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="w-[500px] ml-auto mr-auto">
         {Array.isArray(ratingData) ? (

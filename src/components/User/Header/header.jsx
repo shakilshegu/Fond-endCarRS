@@ -66,7 +66,7 @@ const Header = () => {
           <li className="p-4" onClick={() => navigate("/ViewCars")}>
             Cars
           </li>
-          <li className="p-4">Contacts</li>
+          <li className="p-4" onClick={() => navigate("/Constacts")}>Contacts</li>
           {data ? (
             <Menu as="div" className="relative inline-block text-left">
               <div>
