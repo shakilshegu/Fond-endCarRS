@@ -3,9 +3,12 @@ import Header from "../Header/header";
 import Footer from "../Footer/Footer";
 import { AxiosUser } from "../../../Api/Axiosinstance";
 import { toast } from "react-hot-toast";
+import DetailsModal from "../Modals/DetailsModal";
 
 const CurrentOrders = () => {
   const [orders, setorders] = useState([]);
+  const [selectedOrder, setSelectedOrder] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const usertoken = localStorage.getItem("token");
   const headers = { authorization: usertoken };
 
@@ -23,6 +26,11 @@ const CurrentOrders = () => {
     } catch (error) {
       toast.error("Something went wrong");
     }
+  };
+
+  const handleViewClick = (order) => {
+    setSelectedOrder(order);
+    setIsModalOpen(true);
   };
 
   useEffect(() => {
@@ -81,6 +89,9 @@ const CurrentOrders = () => {
                       DropeLocation
                     </th>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                      view
+                    </th>
+                    <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                       payment
                     </th>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -93,7 +104,7 @@ const CurrentOrders = () => {
                 </thead>
                 <tbody>
                   {orders.map((data, index) => (
-                    <tr>
+                    <tr key={data.id}>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 ">
@@ -125,6 +136,21 @@ const CurrentOrders = () => {
                           {" "}
                           {data?.Dropeuplocation}
                         </p>
+                      </td>
+
+                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <span className="relative  px-3 py-1 hover:bg-indigo-500 bg-indigo-600 font-semibold leading-tight">
+                          <span
+                            aria-hidden
+                            className="absolute inset-0 text-white rounded-md"
+                          ></span>
+                          <button
+                            className="relative text-white  "
+                            onClick={() => handleViewClick(data)}
+                          >
+                            view
+                          </button>
+                        </span>
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
@@ -171,6 +197,13 @@ const CurrentOrders = () => {
                   ))}
                 </tbody>
               </table>
+              {isModalOpen && (
+                <DetailsModal
+                  order={selectedOrder}
+                  onClose={() => setIsModalOpen(false)}
+                />
+              )}
+
               <div className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
                 <span className="text-xs xs:text-sm text-gray-900">
                   Showing 1 to 4 of 50 Entries
