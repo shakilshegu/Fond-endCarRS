@@ -145,7 +145,7 @@ const Chates = () => {
                     >
                       <img
                         className="h-10 w-10 rounded-full object-cover"
-                        src="https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                        src={user?.image}
                         alt="username"
                       />
                       <div className="w-full pb-2">
@@ -172,7 +172,7 @@ const Chates = () => {
                   <div className="flex items-center border-b border-gray-300 pl-3 py-3">
                     <img
                       className="h-10 w-10 rounded-full object-cover"
-                      src="https://images.pexels.com/photos/3777931/pexels-photo-3777931.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                      src={selectedUser?.image}
                       alt="username"
                     />
                     <span className="block ml-2 font-bold text-base text-gray-600">

@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AxiosUser } from "../../../Api/Axiosinstance";
 import { useDispatch } from "react-redux";
 import { hideLoading, showLoading } from "../../../redux/alertsSlice";
+import { signInWithGoogle } from "./firebase";
 
 function Login() {
   const dispatch = useDispatch();
@@ -126,25 +127,30 @@ function Login() {
               </button>
             </div>
           </form>
-          <div className="py-5">
+          <div className="py-5 pl-6">
             <div className="grid grid-cols-2 gap-1">
-              <div className="text-center sm:text-left whitespace-nowrap">
-                <button className="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
+              <div className="text-center sm:text-left whitespace-nowrap ">
+                <button
+                  type="button"
+                  onDoubleClick={signInWithGoogle}
+                  class="text-[#00df9a] bg-black hover:bg-slate-400 focus:ring-4 focus:ring-slate-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-slate-500 mr-2 mb-2"
+                >
                   <svg
+                    class="mr-2 -ml-1 w-4 h-4"
+                    aria-hidden="true"
+                    focusable="false"
+                    data-prefix="fab"
+                    data-icon="google"
+                    role="img"
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    className="w-4 h-4 inline-block align-text-top"
+                    viewBox="0 0 488 512"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"
-                    />
+                      fill="currentColor"
+                      d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
+                    ></path>
                   </svg>
-                  <span className="inline-block ml-1">Forgot Password</span>
+                  Sign in with Google
                 </button>
               </div>
               <div className="text-center sm:text-right  whitespace-nowrap">
