@@ -1,28 +1,27 @@
 import React from "react";
-import toast  from "react-hot-toast";
-import { Link,useNavigate } from "react-router-dom";
-import {AxiosPartner} from "../../../Api/Axiosinstance"
-
+import toast from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
+import { AxiosPartner } from "../../../Api/Axiosinstance";
 
 function Login() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleInputChange = async (e) => {
     try {
       e.preventDefault();
       const response = await AxiosPartner.post(`partnerLogin`, {
         email: e.target.email.value,
-        password: e.target.password.value
-      })
-      if(response.data.success){
-        toast.success(response.data.message)
-        toast("Redirected to homes")
-        localStorage.setItem("partnerToken", response.data.partnerToken)
-        navigate('/partner')
-      }else{
-        toast.error(response.data.message)
+        password: e.target.password.value,
+      });
+      if (response.data.success) {
+        toast.success(response.data.message);
+        toast("Redirected to homes");
+        localStorage.setItem("partnerToken", response.data.partnerToken);
+        navigate("/partner");
+      } else {
+        toast.error(response.data.message);
       }
     } catch (error) {
-      toast.error("Something went wrong")
+      toast.error("Something went wrong");
     }
   };
   return (

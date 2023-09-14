@@ -25,10 +25,10 @@ const Editprofile = () => {
           headers,
         }
       );
-      if(response.data.success){
+      if (response.data.success) {
         setData(response.data.data);
         console.log(response.data.data);
-      }else{
+      } else {
         console.log(response.data.error);
       }
     } catch (error) {
@@ -115,7 +115,7 @@ const Editprofile = () => {
                       type="text"
                       className="text-sm leading-normal text-blueGray-400 font-bold"
                       placeholder="Edit Locations"
-                      value={data?.location} 
+                      value={data?.location}
                       onChange={(e) =>
                         setData({
                           ...data,

@@ -36,7 +36,7 @@ function Home() {
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
           <h1 className="text-white text-3xl p-3 font-extrabold">CarRS</h1>
           <ul className="space-y-2 font-medium">
-            <li  onClick={() => navigate("/admin/DashBord")}>
+            <li onClick={() => navigate("/admin/DashBord")}>
               <i
                 href="#"
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"

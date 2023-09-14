@@ -1,20 +1,23 @@
-
-
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
-  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
-} from 'recharts';
+  BarChart,
+  Bar,
+  Cell,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
-
-function Example({dailyRevenue}) {
-
+function Example({ dailyRevenue }) {
   return (
-    <ResponsiveContainer width={900} height={500} >
+    <ResponsiveContainer width={900} height={500}>
       <BarChart
         width={500}
         height={300}
         data={dailyRevenue}
-
         margin={{
           top: 5,
           right: 30,

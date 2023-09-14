@@ -59,7 +59,7 @@ const FullViewCar = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

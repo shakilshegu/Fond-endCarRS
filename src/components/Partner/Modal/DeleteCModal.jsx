@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const DeleteCModal = ({ onClose, onDelete }) => {
   return (
@@ -24,7 +24,7 @@ const DeleteCModal = ({ onClose, onDelete }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DeleteCModal
+export default DeleteCModal;

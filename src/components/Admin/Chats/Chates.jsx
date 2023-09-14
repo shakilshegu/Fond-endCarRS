@@ -262,7 +262,7 @@ const Chates = () => {
                   >
                     {selectedUser && hasChat && (
                       <input
-                      className="flex-grow h-10  w-[670px] rounded px-3 text-sm"
+                        className="flex-grow h-10  w-[670px] rounded px-3 text-sm"
                         type="text"
                         value={Datamessage}
                         onChange={(e) => setDataMessage(e.target.value)}

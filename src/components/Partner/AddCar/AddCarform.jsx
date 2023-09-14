@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { useNavigate, Link } from "react-router-dom";
 
 const AddCarfrom = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { useState } = React;
   const [files, setFile] = useState([]);
   const [message, setMessage] = useState();
@@ -141,7 +141,7 @@ const AddCarfrom = () => {
       formData.append("color", e.target.color.value);
       formData.append("location", e.target.location.value);
       formData.append("carNo", e.target.carNo.value);
-     
+
       for (let i = 0; i < files.length; i++) {
         formData.append("image", files[i]);
       }
