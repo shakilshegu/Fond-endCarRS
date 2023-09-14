@@ -41,7 +41,6 @@ const FullviewCar = () => {
     } else {
       toast.error("Invalid coupon code. Please enter a valid code.");
     }
-
   };
 
   const location = useLocation();
@@ -333,7 +332,7 @@ const FullviewCar = () => {
               <div className="ml-4 w-[250px]">
                 <button
                   onClick={() => setIsModalOpen(!isModalOpen)}
-                  className=" text-red-600 w-[200px] h-10  font-medium my-4 transition-transform transform hover:scale-105 hover:bg-[#00bf8a] hover:text-white hover:shadow-lg hover:rotate-2 hover:border-[#00df9a]   flex items-center justify-center" 
+                  className=" text-red-600 w-[200px] h-10  font-medium my-4 transition-transform transform hover:scale-105 hover:bg-[#00bf8a] hover:text-white hover:shadow-lg hover:rotate-2 hover:border-[#00df9a]   flex items-center justify-center"
                 >
                   <FontAwesomeIcon icon={faTicketAlt} className="mr-2" />
                   Apply Coupon

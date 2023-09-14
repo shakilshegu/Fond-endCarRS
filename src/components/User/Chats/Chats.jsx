@@ -22,11 +22,7 @@ const Chats = () => {
         { text: message, sender },
         { headers }
       );
-      socket.emit(
-        "message",
-        { text: message, sender },
-        { headers }
-      );
+      socket.emit("message", { text: message, sender }, { headers });
       setMessage("");
       if (response.data.success) {
         toast.success(response.data.message);
@@ -83,31 +79,36 @@ const Chats = () => {
       <body className="flex flex-col items-center justify-center w-screen min-h-screen bg-gray-100 text-gray-800 p-10">
         <div className="flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden">
           <div className="flex  flex-grow h-0 p-4 overflow-auto flex-wrap-reverse">
-            {messages.slice().reverse().map((chat, index) => (
-              <div
-                key={index}
-                className={`flex w-[100%] mt-2 space-x-3 ${
-                  chat.senter === "Admin" ? "justify-start mb-2" : "justify-end"
-                }`}
-              >
-                {chat.senter === "Admin" && (
-                  <div className="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
-                )}
+            {messages
+              .slice()
+              .reverse()
+              .map((chat, index) => (
+                <div
+                  key={index}
+                  className={`flex w-[100%] mt-2 space-x-3 ${
+                    chat.senter === "Admin"
+                      ? "justify-start mb-2"
+                      : "justify-end"
+                  }`}
+                >
+                  {chat.senter === "Admin" && (
+                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+                  )}
 
-                <div>
-                  <div
-                    className={` p-3 ${
-                      chat.senter === "Admin"
-                        ? "rounded-r-lg rounded-bl-lg bg-gray-300"
-                        : " bg-blue-300 rounded-l-lg rounded-br-lg text-white"
-                    }  `}
-                  >
-                    <p className="text-sm ">{chat?.text}</p>
+                  <div>
+                    <div
+                      className={` p-3 ${
+                        chat.senter === "Admin"
+                          ? "rounded-r-lg rounded-bl-lg bg-gray-300"
+                          : " bg-blue-300 rounded-l-lg rounded-br-lg text-white"
+                      }  `}
+                    >
+                      <p className="text-sm ">{chat?.text}</p>
+                    </div>
+                    <span className="text-xs text-gray-500 leading-none"></span>
                   </div>
-                  <span className="text-xs text-gray-500 leading-none"></span>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
           <form action="">
             <div className="bg-gray-300 p-4 flex items-center">

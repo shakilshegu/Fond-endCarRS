@@ -1,11 +1,14 @@
 import React from "react";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import Typed from "react-typed";
 
 function Hero() {
   const navigate = useNavigate();
   return (
-    <div  className="min-h-screen flex flex-col justify-center sm:py-12 bg-cover bg-center text-white"  style={{ backgroundImage: `url(/images/Car.jpg)` }} >
+    <div
+      className="min-h-screen flex flex-col justify-center sm:py-12 bg-cover bg-center text-white"
+      style={{ backgroundImage: `url(/images/Car.jpg)` }}
+    >
       <div className="max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center">
         <p className=" text-[#00df9a] font-bold p-2 ">
           GROWING WITH CAR RENTAL SERVICES
@@ -32,11 +35,13 @@ function Hero() {
           Whether you're planning a family vacation, a business trip, or just
           need a stylish ride for a weekend getaway, we've got you covered.
         </p>
-        <button onClick={() => navigate('/')} className="bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3  text-black">
+        <button
+          onClick={() => navigate("/")}
+          className="bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3  text-black"
+        >
           Get started
         </button>
       </div>
-      
     </div>
   );
 }
