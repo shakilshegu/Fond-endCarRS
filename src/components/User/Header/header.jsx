@@ -58,7 +58,7 @@ const Header = () => {
   return (
     <div className=" bg-black">
       <div className="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white">
-        <h1 className="w-full text-3xl font-bold text-[#00df9a] m-4">CarRS</h1>
+        <h1 className="w-full text-3xl font-bold text-[#00df9a] m-4">CarRS</h1><p></p>
         <ul className="hidden md:flex  cursor-pointer  ">
           <li className="p-4" onClick={() => navigate("/")}>
             Home

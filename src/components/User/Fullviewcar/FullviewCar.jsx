@@ -91,11 +91,11 @@ const FullviewCar = () => {
           break;
         }
       }
-
+       
       if (isDateAvailable) {
         var options = {
-          key: "rzp_test_z6zqoNJq1V7ZN3",
-          key_secret: "EAxochtnPd3veugWJyRJRnit",
+          key:process.env.REACT_APP_RAZOPAY_API_KEY,
+          key_secret:process.env.REACT_APP_RAZOPAY_SECRECT_KEY,
           currency: "INR",
           name: "CarRS",
           description: "for testing purpose",
@@ -105,9 +105,9 @@ const FullviewCar = () => {
             handleBooking();
           },
           prefill: {
-            name: "Shakil",
-            email: "muhammadshakil1968.com",
-            contact: "9544681968",
+            name: process.env.REACT_APP_NAME_KEY,
+            email: process.env.REACT_APP_EMAIL_KEY,
+            contact: process.env.REACT_APP_CONATCT_KEY,
           },
           notes: {
             address: "Razorpay Corporate office",

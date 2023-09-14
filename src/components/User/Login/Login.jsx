@@ -50,7 +50,7 @@ function Login() {
       dispatch(hideLoading());
       if (response.data.success) {
         toast.success(response.data.message);
-        toast("Redirected to homes");
+        toast(`Redirected to homes`);
         localStorage.setItem("token", response.data.token);
         navigate("/");
       } else {

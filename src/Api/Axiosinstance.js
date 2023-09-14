@@ -1,6 +1,8 @@
 import axios from "axios"
 import { toast } from "react-hot-toast";
 
+
+
 export const AxiosUser =axios.create({
     baseURL:"http://localhost:5000/"
 })
