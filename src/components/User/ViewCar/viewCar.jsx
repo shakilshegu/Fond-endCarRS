@@ -19,7 +19,7 @@ const ViewCar = () => {
 
   const handledetail = (data) => {
     navigate("/FullviewCar", {
-      state: data
+      state: data,
     });
   };
 

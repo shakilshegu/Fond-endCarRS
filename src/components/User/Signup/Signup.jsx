@@ -134,64 +134,64 @@ function Signup() {
                 Password
               </label>
               <div className="relative">
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                value={formData.password}
-                onChange={(e) => {
-                  setFormData({ ...formData, password: e.target.value });
-                  setErrors({ ...errors, password: "" });
-                }}
-                className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
-              />{" "}
-              <span
-                className="absolute  inset-y-0 right-0 pr-3 flex mt-3.5 cursor-pointer"
-                onClick={handlePasswordToggle}
-              >
-                {showPassword ? (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    className="h-5 w-5 text-black"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M15.293 9.293a1 1 0 00-1.414-1.414L12 10.586l-1.88-1.88a1 1 0 00-1.414 1.414L10.586 12l-1.88 1.88a1 1 0 001.414 1.414L12 13.414l1.88 1.88a1 1 0 001.414-1.414L13.414 12l1.88-1.88a1 1 0 000-1.414z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    className="h-5 w-5  text-black"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M10 3v2m0 16v2m5-11h2m-3-3h-2m0 8h2m-5 1a7 7 0 110-14 7 7 0 010 14z"
-                    />
-                  </svg>
-                )}
-              </span>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={formData.password}
+                  onChange={(e) => {
+                    setFormData({ ...formData, password: e.target.value });
+                    setErrors({ ...errors, password: "" });
+                  }}
+                  className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
+                />{" "}
+                <span
+                  className="absolute  inset-y-0 right-0 pr-3 flex mt-3.5 cursor-pointer"
+                  onClick={handlePasswordToggle}
+                >
+                  {showPassword ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      className="h-5 w-5 text-black"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M15.293 9.293a1 1 0 00-1.414-1.414L12 10.586l-1.88-1.88a1 1 0 00-1.414 1.414L10.586 12l-1.88 1.88a1 1 0 001.414 1.414L12 13.414l1.88 1.88a1 1 0 001.414-1.414L13.414 12l1.88-1.88a1 1 0 000-1.414z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      className="h-5 w-5  text-black"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M10 3v2m0 16v2m5-11h2m-3-3h-2m0 8h2m-5 1a7 7 0 110-14 7 7 0 010 14z"
+                      />
+                    </svg>
+                  )}
+                </span>
               </div>
               {errors.password && (
                 <p className=" pt-2 text-red-500 text-sm">{errors.password}</p>

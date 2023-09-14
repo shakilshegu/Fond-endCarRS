@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { AxiosUser } from "../../../Api/Axiosinstance";
 import { toast } from "react-hot-toast";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { hideLoading, showLoading } from "../../../redux/alertsSlice";
 import { useDispatch } from "react-redux";
 
@@ -13,43 +13,40 @@ const Rating = () => {
   const [hoveredRating, setHoveredRating] = useState(0);
 
   const [starss, setStars] = useState(0);
-  const [review, setReview] = useState('');
-  
+  const [review, setReview] = useState("");
+
   const location = useLocation();
   const data = location.state;
   const usertoken = localStorage.getItem("token");
   const headers = { authorization: usertoken };
-  
+
   const handleRatingSubmit = async (e) => {
     e.preventDefault();
     try {
       dispatch(showLoading());
       const response = await AxiosUser.post(`Rating`, {
-       booking:data._id,
-       userId: data.userId,
-       partnerId: data.partnerId,
-       CarId: data.CarId,
+        booking: data._id,
+        userId: data.userId,
+        partnerId: data.partnerId,
+        CarId: data.CarId,
         stars: rating,
         review,
       });
       dispatch(hideLoading());
       if (response.data.data) {
         toast.success(response.data.message);
-        navigate("/BookingHistory")
+        navigate("/BookingHistory");
         setStars(0);
-        setReview('');
-    } else {
-      dispatch(hideLoading());
-      toast.error(response.data.message);
-    }
-      
+        setReview("");
+      } else {
+        dispatch(hideLoading());
+        toast.error(response.data.message);
+      }
     } catch (error) {
       console.error(error);
-      alert('Error saving rating');
+      alert("Error saving rating");
     }
   };
-  
-
 
   const handleStarClick = (starValue) => {
     setRating(starValue);
@@ -61,8 +58,6 @@ const Rating = () => {
   const handleMouseLeave = () => {
     setHoveredRating(0);
   };
-
-
 
   const stars = [1, 2, 3, 4, 5].map((starValue) => (
     <svg
@@ -83,46 +78,51 @@ const Rating = () => {
   return (
     <div>
       <form action="">
-      <div className="min-h-screen bg-gray-300 py-6 flex flex-col justify-center sm:py-12">
-        <div className="py-3 sm:max-w-xl sm:mx-auto">
-          <div className="bg-white min-w-1xl flex flex-col rounded-xl shadow-lg">
-            <div className="px-12 py-5">
-              <h2 className="text-gray-800 text-3xl font-semibold">
-                Your opinion matters to us!
-              </h2>
-            </div>
-            <div className="bg-gray-200 w-full flex flex-col items-center">
-              <div className="flex flex-col items-center py-6 space-y-3">
-                <span className="text-lg text-gray-800">
-                  How was quality of the call?
-                </span>
-                <div className="flex space-x-3" onMouseLeave={handleMouseLeave}>
-                  {stars}
+        <div className="min-h-screen bg-gray-300 py-6 flex flex-col justify-center sm:py-12">
+          <div className="py-3 sm:max-w-xl sm:mx-auto">
+            <div className="bg-white min-w-1xl flex flex-col rounded-xl shadow-lg">
+              <div className="px-12 py-5">
+                <h2 className="text-gray-800 text-3xl font-semibold">
+                  Your opinion matters to us!
+                </h2>
+              </div>
+              <div className="bg-gray-200 w-full flex flex-col items-center">
+                <div className="flex flex-col items-center py-6 space-y-3">
+                  <span className="text-lg text-gray-800">
+                    How was quality of the call?
+                  </span>
+                  <div
+                    className="flex space-x-3"
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    {stars}
+                  </div>
+                </div>
+                <div className="w-3/4 flex flex-col">
+                  <textarea
+                    value={review}
+                    onChange={(e) => setReview(e.target.value)}
+                    rows="3"
+                    className="p-4 text-gray-500 rounded-xl resize-none"
+                  >
+                    Text
+                  </textarea>
+                  <button
+                    onClick={handleRatingSubmit}
+                    className="py-3 my-8 text-lg bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl text-white"
+                  >
+                    Rate now
+                  </button>
                 </div>
               </div>
-              <div className="w-3/4 flex flex-col">
-                <textarea
-                value={review} 
-                onChange={(e) => setReview(e.target.value)}
-                  rows="3"
-                  className="p-4 text-gray-500 rounded-xl resize-none"
-                >
-                  Text
-                </textarea>
-                <button onClick={handleRatingSubmit} className="py-3 my-8 text-lg bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl text-white">
-                  Rate now
-                </button>
+              <div className="h-20 flex items-center justify-center">
+                <a href="#" className="text-gray-600">
+                  Maybe later
+                </a>
               </div>
             </div>
-            <div className="h-20 flex items-center justify-center">
-              <a href="#" className="text-gray-600">
-                Maybe later
-              </a>
-            </div>
           </div>
-
         </div>
-      </div>
       </form>
     </div>
   );

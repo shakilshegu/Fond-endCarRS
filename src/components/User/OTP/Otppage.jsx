@@ -21,12 +21,12 @@ const Otppage = () => {
       e.preventDefault();
       const enteredOtp = otp.join("");
       dispatch(showLoading());
-      const response = await AxiosUser.post(`userOtp`,{ enteredOtp });
+      const response = await AxiosUser.post(`userOtp`, { enteredOtp });
       dispatch(hideLoading());
       console.log(response.data);
-      if (response.data.success) { 
+      if (response.data.success) {
         toast.success(response.data.message);
-        navigate("/login")
+        navigate("/login");
       } else {
         alert("Invalid OTP");
       }
@@ -50,7 +50,7 @@ const Otppage = () => {
             </div>
 
             <div>
-              <form action="" >
+              <form action="">
                 <div class="flex flex-col space-y-16">
                   <div class="flex flex-row items-center justify-between mx-auto w-full max-w-xs">
                     {otp.map((digit, index) => (
@@ -60,10 +60,9 @@ const Otppage = () => {
                           type="text"
                           name={`otp-${index}`}
                           value={digit}
-                          onChange={(e) =>{
-                            handleOtpChange(index, e.target.value)
-                          }
-                          }
+                          onChange={(e) => {
+                            handleOtpChange(index, e.target.value);
+                          }}
                           maxLength="1"
                         />
                       </div>

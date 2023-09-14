@@ -10,14 +10,11 @@ const DetailsModal = ({ order, onClose }) => {
           <span className="close bg-white w-[100px]" onClick={onClose}>
             &times;
           </span>
-          <img  src={order.CarId.Images[0]} alt="Car" />
+          <img src={order.CarId.Images[0]} alt="Car" />
           <div className="bg-slate-500">
-
-          <p className="text-black font-bold">{order.brand}</p>
-          <p>{order.CarId.description}</p>
-
+            <p className="text-black font-bold">{order.brand}</p>
+            <p>{order.CarId.description}</p>
           </div>
-          
         </div>
       </div>
     </div>

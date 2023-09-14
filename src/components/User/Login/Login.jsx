@@ -79,11 +79,13 @@ function Login() {
               <input
                 type="email"
                 name="email"
-                value={formData.email} 
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
               />
-               {errors.email && (
+              {errors.email && (
                 <p className="text-red-500 text-sm">{errors.email}</p>
               )}
               <label className="font-semibold text-sm text-white pb-1 block">
@@ -93,7 +95,9 @@ function Login() {
                 type="password"
                 name="password"
                 value={formData.password}
-                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, password: e.target.value })
+                }
                 className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                 autocomplete="current-password"
               />
