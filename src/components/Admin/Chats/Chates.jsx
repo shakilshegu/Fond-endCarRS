@@ -33,7 +33,7 @@ const Chates = () => {
       const response = await AxiosAdmin.get(`getMessages?userId=${userId}`, {});
       if (response.data.messages) {
         setMessages(response.data.messages);
-        console.log(response.data.messages);
+        console.log("get Mesaaaaaaaaaaaages",response.data.messages);
         setHasChat(true);
       }
     } catch (error) {
@@ -45,15 +45,10 @@ const Chates = () => {
     e.preventDefault();
     try {
       const sender = "Admin";
-      const newMessage = { text: Datamessage, selectedUser, sender };
-      console.log(newMessage);
+      const newMessage = { text: Datamessage, selectedUser:selectedUser._id, sender };
       const response = await AxiosAdmin.post(`postmessege`, newMessage);
-      setMessage("");
-      socket.emit("message", {
-        text: Datamessage,
-        sender: "Admin",
-        userId: selectedUser._id,
-      });
+      socket.emit("message",newMessage);
+      setMessage(" ");
       if (response.data.success) {
         toast.success(response.data.message);
       } else {
@@ -67,18 +62,13 @@ const Chates = () => {
 
   useEffect(() => {
     console.log("Socket.io connected.");
-
     getData();
-
     socket.on("connect", () => {
       console.log("Socket.io connected to the server.");
     });
     socket.on("message", (newMessage) => {
       console.log("Received message:", newMessage);
-      setMessage((prevMassage) => [
-        ...(prevMassage?.length ? prevMassage : []),
-        newMessage,
-      ]);
+      setMessages((prevMessages) => [...prevMessages, newMessage]);
     });
     return () => {
       socket.disconnect();
@@ -199,7 +189,7 @@ const Chates = () => {
                   ) : (
                     <ul>
                       {messages.map((message, index) => (
-                        <li className="clearfix2" key={message._id}>
+                        <li className="clearfix2" key={index}>
                           <div
                             className={`w-full flex  ${
                               message.senter === "User"
