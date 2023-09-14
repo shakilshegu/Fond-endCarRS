@@ -33,7 +33,7 @@ const Chates = () => {
       const response = await AxiosAdmin.get(`getMessages?userId=${userId}`, {});
       if (response.data.messages) {
         setMessages(response.data.messages);
-        console.log("get Mesaaaaaaaaaaaages",response.data.messages);
+        console.log("get Mesaaaaaaaaaaaages", response.data.messages);
         setHasChat(true);
       }
     } catch (error) {
@@ -45,9 +45,13 @@ const Chates = () => {
     e.preventDefault();
     try {
       const sender = "Admin";
-      const newMessage = { text: Datamessage, selectedUser:selectedUser._id, sender };
+      const newMessage = {
+        text: Datamessage,
+        selectedUser: selectedUser._id,
+        sender,
+      };
       const response = await AxiosAdmin.post(`postmessege`, newMessage);
-      socket.emit("message",newMessage);
+      socket.emit("message", newMessage);
       setMessage(" ");
       if (response.data.success) {
         toast.success(response.data.message);
