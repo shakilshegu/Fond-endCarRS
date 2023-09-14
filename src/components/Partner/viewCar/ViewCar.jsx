@@ -14,7 +14,7 @@ const ViewCar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [carToDelete, setCarToDelete] = useState(null);
-  
+
   const partnerToken = localStorage.getItem("partnerToken");
   const headers = { authorization: partnerToken };
 
@@ -58,8 +58,11 @@ const ViewCar = () => {
       <Navbar />
       <div className=" mt-2 relative overflow-x-auto shadow-md sm:rounded-lg mx-4">
         <div className="pb-4 bg-white dark:bg-white">
-          <label for="table-search " className="mt-6 text-2xl font-bold mt-2sr-only text-black">
-          CAR DETAILES
+          <label
+            for="table-search "
+            className="mt-6 text-2xl font-bold mt-2sr-only text-black"
+          >
+            CAR DETAILES
           </label>
           <div className="relative mt-4 ml-3">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -162,7 +165,10 @@ const ViewCar = () => {
                   <td className="px-6 py-4">{data?.year}</td>
                   <td className="px-6 py-4">${data?.price}</td>
                   <td className="px-6 py-4 text-center">
-                    <button  onClick={() => handleViewdetail(data)} class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                    <button
+                      onClick={() => handleViewdetail(data)}
+                      class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
+                    >
                       <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                         View More
                       </span>
@@ -190,22 +196,22 @@ const ViewCar = () => {
         </table>
       </div>
       <div className="pagination flex items-center justify-center mt-4 space-x-2">
-  <button
-    onClick={() => setCurrentPage(currentPage - 1)}
-    disabled={currentPage === 1}
-    className="bg-blue-500 text-white border-none py-2 px-4 rounded cursor-pointer transition-colors duration-300 hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
-  >
-    Previous
-  </button>
-  <span className="text-lg font-semibold">{currentPage}</span>
-  <button
-    onClick={() => setCurrentPage(currentPage + 1)}
-    disabled={car.length < carsPerPage || car.length === 0}
-    className="bg-blue-500 text-white border-none py-2 px-4 rounded cursor-pointer transition-colors duration-300 hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
-  >
-    Next
-  </button>
-</div>
+        <button
+          onClick={() => setCurrentPage(currentPage - 1)}
+          disabled={currentPage === 1}
+          className="bg-blue-500 text-white border-none py-2 px-4 rounded cursor-pointer transition-colors duration-300 hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
+        >
+          Previous
+        </button>
+        <span className="text-lg font-semibold">{currentPage}</span>
+        <button
+          onClick={() => setCurrentPage(currentPage + 1)}
+          disabled={car.length < carsPerPage || car.length === 0}
+          className="bg-blue-500 text-white border-none py-2 px-4 rounded cursor-pointer transition-colors duration-300 hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
+        >
+          Next
+        </button>
+      </div>
       <div className="mt-7">
         <Footer />
       </div>

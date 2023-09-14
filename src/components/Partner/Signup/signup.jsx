@@ -1,14 +1,14 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import {AxiosPartner} from "../../../Api/Axiosinstance"
+import { AxiosPartner } from "../../../Api/Axiosinstance";
 
 function Signup() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleInputChange = async (e) => {
     try {
       e.preventDefault();
-      const response = await AxiosPartner.post(`partnerSignup`,{
+      const response = await AxiosPartner.post(`partnerSignup`, {
         name: e.target.name.value,
         email: e.target.email.value,
         phone: e.target.phone.value,
@@ -35,7 +35,7 @@ function Signup() {
         </h1>
 
         <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
-          <form onSubmit={handleInputChange} action="" >
+          <form onSubmit={handleInputChange} action="">
             <div className="px-5 py-7">
               <label
                 className="font-semibold text-sm text-gray-600 pb-1 block"
@@ -56,7 +56,7 @@ function Signup() {
                 name="email"
                 className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
               />
-                <label className="font-semibold text-sm text-gray-600 pb-1 block">
+              <label className="font-semibold text-sm text-gray-600 pb-1 block">
                 phone Number
               </label>
               <input

@@ -193,10 +193,10 @@ const Orders = () => {
                         </td>
                         <td className=" px-5 py-5 border-b border-gray-200 bg-white text-sm">
                           <p className="text-gray-900 whitespace-no-wrap flex">
-                           pick: {data?.pickuplocation}
+                            pick: {data?.pickuplocation}
                           </p>
                           <p className="text-gray-900 whitespace-no-wrap">
-                           Drope: {data?.Dropeuplocation}
+                            Drope: {data?.Dropeuplocation}
                           </p>
                         </td>
                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -247,7 +247,7 @@ const Orders = () => {
                                   <option selected>Delivered</option>
                                 </>
                               )}
-                               {data.status === "canceled" && (
+                              {data.status === "canceled" && (
                                 <>
                                   <option selected>canceled</option>
                                 </>
