@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTicketAlt } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import { hideLoading, showLoading } from "../../../redux/alertsSlice";
 
 const FullviewCar = () => {
   const [ratingData, setRatingData] = useState("");
@@ -27,9 +29,14 @@ const FullviewCar = () => {
   const handleCouponCodeChange = (e) => {
     setCouponCode(e.target.value);
   };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  }
 
   const applyCoupon = () => {
-    if (couponApplied) {
+    if(totalAmount === 0){
+      toast.error("pls select date and get amount");
+    }else if (couponApplied) {
       toast.error("Coupon has already been applied.");
     } else if (couponCode === "TAILOFFER10") {
       const discountAmount = 0.1;
@@ -357,7 +364,7 @@ const FullviewCar = () => {
 
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div className="modal-overlay absolute bg-black opacity-10"></div>
+          <div className="modal-overlay absolute bg-black opacity-10"    onClick={closeModal}></div>
           <div className="container bg-gradient-to-r from-indigo-500 to-violet-500 text-white p-8 rounded-lg shadow-lg max-w-md mx-auto">
             <div className="text-3xl font-bold mb-4">Special Offer!</div>
             <div className="text-lg mb-4">

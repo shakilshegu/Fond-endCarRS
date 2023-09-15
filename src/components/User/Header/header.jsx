@@ -197,9 +197,6 @@ const Header = () => {
             <li className="p-4 border-b  border-gray-600">About</li>
             <li className="p-4 border-b  border-gray-600">Contacts</li>
             <li className="p-4">Places</li>
-            <button className="bg-[#fbfbfb] w-[100px] rounded-md font-bold h-[40px] mt-2  text-black">
-              Login
-            </button>
           </ul>
         </div>
       </div>
