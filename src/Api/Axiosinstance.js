@@ -3,18 +3,22 @@ import { toast } from "react-hot-toast";
 
 
 
+
 export const AxiosUser =axios.create({
-    baseURL:"http://localhost:5000/"
+  baseURL:"https://carrs.onrender.com/"
 })
 
 
 export const AxiosAdmin =axios.create({
-    baseURL:"http://localhost:5000/admin/"
+  baseURL:"https://carrs.onrender.com/admin/"
 })
 
 export const AxiosPartner =axios.create({
-    baseURL:"http://localhost:5000/partner/"
+  baseURL:"https://carrs.onrender.com/partner/"
 })
+
+
+
 
 
 AxiosUser.interceptors.response.use(
@@ -50,3 +54,19 @@ const handleAxiosError = (error, navigate) => {
         toast.error(errorMessage);
       }
     }
+
+
+
+
+    // export const AxiosUser =axios.create({
+//     baseURL:"http://localhost:5000/"
+// })
+
+
+// export const AxiosAdmin =axios.create({
+//     baseURL:"http://localhost:5000/admin/"
+// })
+
+// export const AxiosPartner =axios.create({
+//     baseURL:"http://localhost:5000/partner/"
+// })
