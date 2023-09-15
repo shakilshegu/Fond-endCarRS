@@ -8,7 +8,6 @@ export const AxiosUser =axios.create({
   baseURL:"https://carrs.onrender.com/"
 })
 
-
 export const AxiosAdmin =axios.create({
   baseURL:"https://carrs.onrender.com/admin/"
 })
@@ -16,7 +15,6 @@ export const AxiosAdmin =axios.create({
 export const AxiosPartner =axios.create({
   baseURL:"https://carrs.onrender.com/partner/"
 })
-
 
 
 
