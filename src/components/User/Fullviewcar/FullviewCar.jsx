@@ -107,7 +107,6 @@ const FullviewCar = () => {
           description: "for testing purpose",
           amount: totalAmount * 100,
           handler: function (response) {
-            alert("Payment Successful!");
             handleBooking();
           },
           prefill: {
