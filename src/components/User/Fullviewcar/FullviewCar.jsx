@@ -7,7 +7,6 @@ import Footer from "../Footer/Footer";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useNavigate } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTicketAlt } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { hideLoading, showLoading } from "../../../redux/alertsSlice";
@@ -341,7 +340,6 @@ const FullviewCar = () => {
                   onClick={() => setIsModalOpen(!isModalOpen)}
                   className=" text-red-600 w-[200px] h-10  font-medium my-4 transition-transform transform hover:scale-105 hover:bg-[#00bf8a] hover:text-white hover:shadow-lg hover:rotate-2 hover:border-[#00df9a]   flex items-center justify-center"
                 >
-                  <FontAwesomeIcon icon={faTicketAlt} className="mr-2" />
                   Apply Coupon
                 </button>
               </div>
