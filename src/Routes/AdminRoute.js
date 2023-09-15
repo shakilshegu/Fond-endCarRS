@@ -28,7 +28,16 @@ function AdminRoute() {
             </ProtectedRouteAdmin>
           }
         />
-        <Route path="/login" element={<Loginpage />} />
+        <Route
+          path="/login"
+          element={
+            <PublicRouteAdmin>
+              {""}
+              <Loginpage />
+              {""}
+            </PublicRouteAdmin>
+          }
+        />
         <Route
           path="/user"
           element={
