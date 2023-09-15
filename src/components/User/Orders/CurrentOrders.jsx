@@ -14,7 +14,6 @@ const CurrentOrders = () => {
 
   const getOrders = async () => {
     try {
-      console.log("kooooi");
       const response = await AxiosUser.get(`getorders`, { headers });
       if (response.data.success) {
         console.log(response.data);

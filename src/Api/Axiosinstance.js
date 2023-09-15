@@ -4,18 +4,30 @@ import { toast } from "react-hot-toast";
 
 
 
+// export const AxiosUser =axios.create({
+//   baseURL:"https://carrs.onrender.com/"
+// })
+
+// export const AxiosAdmin =axios.create({
+//   baseURL:"https://carrs.onrender.com/admin/"
+// })
+
+// export const AxiosPartner =axios.create({
+//   baseURL:"https://carrs.onrender.com/partner/"
+// })
+
 export const AxiosUser =axios.create({
-  baseURL:"https://carrs.onrender.com/"
+  baseURL:"http://localhost:5000/"
 })
 
+
 export const AxiosAdmin =axios.create({
-  baseURL:"https://carrs.onrender.com/admin/"
+  baseURL:"http://localhost:5000/admin/"
 })
 
 export const AxiosPartner =axios.create({
-  baseURL:"https://carrs.onrender.com/partner/"
+  baseURL:"http://localhost:5000/partner/"
 })
-
 
 
 
@@ -56,15 +68,3 @@ const handleAxiosError = (error, navigate) => {
 
 
 
-    // export const AxiosUser =axios.create({
-//     baseURL:"http://localhost:5000/"
-// })
-
-
-// export const AxiosAdmin =axios.create({
-//     baseURL:"http://localhost:5000/admin/"
-// })
-
-// export const AxiosPartner =axios.create({
-//     baseURL:"http://localhost:5000/partner/"
-// })

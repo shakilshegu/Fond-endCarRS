@@ -13,6 +13,25 @@ const Chats = () => {
   const headers = { authorization: usertoken };
   const socket = io(ServerPort);
 
+  useEffect(() => {
+    getmessage();
+    const socket = io(ServerPort);
+    socket.on("connect", () => {
+      console.log("User connected to socket.io");
+    });
+
+    socket.on("message", (newMessage) => {
+      console.log("New message received:", newMessage);
+      setMessages((prevMessages) => [
+        ...(prevMessages?.length ? prevMessages : []),
+        newMessage,
+      ]);
+    });
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
@@ -54,23 +73,7 @@ const Chats = () => {
     }
   };
 
-  useEffect(() => {
-    getmessage();
-    const socket = io(ServerPort);
-    socket.on("connect", () => {
-      console.log("User connected to socket.io");
-    });
 
-    socket.on("message", (newMessage) => {
-      setMessages((prevMessages) => [
-        ...(prevMessages?.length ? prevMessages : []),
-        newMessage,
-      ]);
-    });
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
 
   return (
     <div className="overflow-y-hidden">
@@ -78,7 +81,7 @@ const Chats = () => {
 
       <body className="flex flex-col items-center justify-center w-screen min-h-screen bg-gray-100 text-gray-800 p-10">
         <div className="flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden">
-          <div className="flex  flex-grow h-0 p-4 overflow-auto flex-wrap-reverse">
+          <div className="flex  flex-grow h-0 p-4 overflow-y-auto flex-wrap-reverse">
             {messages
               .slice()
               .reverse()
@@ -87,7 +90,7 @@ const Chats = () => {
                   key={index}
                   className={`flex w-[100%] mt-2 space-x-3 ${
                     chat.senter === "Admin"
-                      ? "justify-start mb-2"
+                      ? "justify-start "
                       : "justify-end"
                   }`}
                 >
