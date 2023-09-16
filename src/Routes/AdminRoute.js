@@ -7,7 +7,6 @@ import UserList from "../components/Admin/UserList/UserList";
 import PartnerList from "../components/Admin/PartnerList/partnerList";
 import Category from "../components/Admin/Category/Category";
 import { ProtectedRouteAdmin } from "../utils/ProtectedRoute";
-import { PublicRouteAdmin } from "../utils/PublicRoutes";
 import Chates from "../components/Admin/Chats/Chates";
 import Orders from "../components/Admin/Orders/Orders";
 import Dashpage from "../components/Admin/DashBord/Dashbord.jsx";
