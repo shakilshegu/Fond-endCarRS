@@ -44,6 +44,9 @@ const Header = () => {
   const loginsellerClick = () => {
     navigate("partner/login");
   };
+  const loginadminClick = () => {
+    navigate("admin/login");
+  };
 
   useEffect(() => {
     getData();
@@ -176,6 +179,12 @@ const Header = () => {
             className="bg-[#fbfbfb] w-[100px] ml-5 rounded-md font-bold h-[40px] mt-2  text-black"
           >
             Partner
+          </button>
+          <button
+            onClick={loginadminClick}
+            className=" w-[100px] ml-5 rounded-md font-bold h-[40px] mt-2  text-black"
+          >
+            Admin
           </button>
         </ul>
         <div onClick={HandleNav} className="block md:hidden">
