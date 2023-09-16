@@ -22,9 +22,7 @@ function AdminRoute() {
           path="/*"
           element={
             <ProtectedRouteAdmin>
-              {""}
               <Dashbord />
-              {""}
             </ProtectedRouteAdmin>
           }
         />
