@@ -19,7 +19,7 @@ function AdminRoute() {
       <Toaster position="top-center" role="status" />
       <Routes>
         <Route
-          path="/"
+          path="/*"
           element={
             <ProtectedRouteAdmin>
               {""}
