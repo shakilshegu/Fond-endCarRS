@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { adminApi } from "../../../Store/Api";
+import { AxiosAdmin } from "../../../Api/Axiosinstance";
 import toast from "react-hot-toast";
 
 export default function Login() {
@@ -11,7 +10,7 @@ export default function Login() {
   const handleLogin = async (e) => {
     try {
       e.preventDefault();
-      const response = await axios.post(`${adminApi}adminLogin`, {
+      const response = await AxiosAdmin.post(`adminLogin`, {
         email: e.target.email.value,
         password: e.target.password.value,
       });
