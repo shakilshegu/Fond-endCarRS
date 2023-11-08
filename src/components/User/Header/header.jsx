@@ -24,15 +24,16 @@ const Header = () => {
 
   const getData = async () => {
     try {
-      const response = await AxiosUser.post(
-        `getuserinfobyid`,
-        {},
-        {
-          headers,
-        }
-      );
-      setData(response.data.data);
-      console.log(response.data.data);
+      if(usertoken){
+        const response = await AxiosUser.post(
+          `getuserinfobyid`,
+          {},
+          {
+            headers,
+          }
+        );
+        setData(response.data.data);
+      }
     } catch (error) {
       console.log(error);
     }

@@ -101,14 +101,7 @@ const UserRoute = () => {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/Otppage"
-          element={
-            <ProtectedRoute>
-              <Otppage />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/Otppage" element={<Otppage />} />
         <Route
           path="/Rating"
           element={

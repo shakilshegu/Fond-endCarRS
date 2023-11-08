@@ -76,8 +76,8 @@ function Signup() {
       });
       dispatch(hideLoading());
       if (response.data.success) {
-        toast.success(response.data.message);
         navigate("/Otppage");
+        toast.success(response.data.message);
       } else {
         toast.error(response.data.message);
       }

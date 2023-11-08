@@ -9,8 +9,10 @@ import { ServerPort } from "../../../Api/ServerPort";
 const Chats = () => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
+
   const usertoken = localStorage.getItem("token");
   const headers = { authorization: usertoken };
+  
   const socket = io(ServerPort);
 
   useEffect(() => {
