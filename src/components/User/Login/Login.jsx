@@ -179,7 +179,7 @@ function Login() {
         <div class="py-5">
           <div class="grid grid-cols-2 gap-1">
             <div class="text-center sm:text-left whitespace-nowrap">
-              <button class="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
+              <button class="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-white hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
