@@ -6,8 +6,8 @@ function Hero() {
   const navigate = useNavigate();
   return (
     <div
-      className="min-h-screen flex flex-col justify-center sm:py-12 bg-cover bg-center text-white"
-      style={{ backgroundImage: `url(/images/Car.jpg)` }}
+      className="min-h-screen flex bg-black flex-col justify-center sm:py-12 bg-cover bg-center text-white"
+      
     >
       <div className="max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center">
         <p className=" text-[#00df9a] font-bold p-2 ">
