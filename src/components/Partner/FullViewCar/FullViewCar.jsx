@@ -6,7 +6,6 @@ import { useLocation } from "react-router-dom";
 const FullViewCar = () => {
   const location = useLocation();
   const data = location.state;
-  console.log(data);
   return (
     <div>
       <Navbar />

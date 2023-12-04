@@ -88,9 +88,9 @@ function Signup() {
   };
 
   return (
-    <div className=" bg-black min-h-screen bg-gradient-to-r flex flex-col justify-center sm:py-12">
+    <div className=" bg-black min-h-screen  flex flex-col justify-center sm:py-12">
       <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
-        <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-black  to-violet-500 font-bold text-center text-2xl mb-5">
+        <h1 className="  text-[#00df9a] font-bold text-center text-2xl mb-5">
           Sign Up
         </h1>
 
@@ -98,7 +98,7 @@ function Signup() {
           <form onSubmit={handleInputChange} action="">
             <div className="px-5 py-7">
               <label
-                className="font-semibold text-sm text-gray-600 pb-1 block"
+                className="font-semibold text-sm text-white pb-1 block"
                 name="name"
               >
                 UserName
@@ -115,7 +115,7 @@ function Signup() {
               {errors.name && (
                 <p className="text-red-500 text-sm">{errors.name}</p>
               )}
-              <label className="font-semibold text-sm text-gray-600 pb-1 block">
+              <label className="font-semibold text-sm text-white pb-1 block">
                 E-mail
               </label>
               <input
@@ -130,7 +130,7 @@ function Signup() {
               {errors.email && (
                 <p className="text-red-500 text-sm">{errors.email}</p>
               )}
-              <label className="font-semibold text-sm text-gray-600 pb-1 block ">
+              <label className="font-semibold text-sm text-white pb-1 block ">
                 Password
               </label>
               <div className="relative">
@@ -198,7 +198,7 @@ function Signup() {
               )}
               <button
                 type="submit"
-                className="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+                className="transition duration-200 bg-black hover:bg-gray-600 focus:bg-gray-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-[#00df9a]  w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
               >
                 <span className="inline-block mr-2">Signup</span>
 
