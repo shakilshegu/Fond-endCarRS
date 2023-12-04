@@ -203,15 +203,21 @@ const FullviewCar = () => {
           <div class="max-w-2xl mx-auto mt-3 mr-6 ">
             <Carousel className="w-[600px] ">
               <div>
-                <img className="rounded-lg" src={data.Images[0]} />
-                <p className="legend">BMW M3 </p>
+                <img className="rounded-lg" src={data.Images[0]} alt="carimage" />
+                <p className="legend">
+                  {data.name}
+                </p>
               </div>
               <div>
-                <img className="rounded-lg" src={data.Images[1]} />
+                <img className="rounded-lg" src={data.Images[1]}   alt="carimage"/>
                 <p className="legend"> Inderior</p>
               </div>
               <div>
-                <img className="rounded-lg" src={data.Images[2]} />
+                <img className="rounded-lg" src={data.Images[2]}  alt="carimage" />
+                <p className="legend"> Door Inderior</p>
+              </div>
+              <div>
+                <img className="rounded-lg" src={data.Images[3]}  alt="carimage"/>
                 <p className="legend"> Door Inderior</p>
               </div>
             </Carousel>

@@ -75,59 +75,7 @@ const AddCarfrom = () => {
   };
 
   const handleInputChange = async (e) => {
-    // const { name, brand, year, color, mileage, price, description, category, location } = formData;
-    // let isValid = true;
-    //  const newErrors = {
-    //    name: "",
-    //    brand: "",
-    //    year:"",
-    //    color:"",
-    //    mileage:"",
-    //    price:"",
-    //    description:"",
-    //    category:"",
-    //    location:"",
-    //  };
-    //  if (!name) {
-    //    isValid = false;
-    //    newErrors.name = "name is required";
-    //  }
-    //  if (!brand) {
-    //    isValid = false;
-    //    newErrors.brand= "Brand is required";
-    //  }
-    //  if (!year) {
-    //    isValid = false;
-    //    newErrors.year = "Year is required";
-    //  }
-    //  if (!color) {
-    //    isValid = false;
-    //    newErrors.color = "Color is required";
-    //  }
-    //  if (!mileage) {
-    //    isValid = false;
-    //    newErrors.mileage = "Mileage is required";
-    //  }
-    //  if (!price) {
-    //    isValid = false;
-    //    newErrors.price = "price is required";
-    //  }
-    //  if (!description) {
-    //    isValid = false;
-    //    newErrors.description = "description is required";
-    //  }
-    //  if (!category) {
-    //    isValid = false;
-    //    newErrors.category = "Category is required";
-    //  }
-    //  if (!location) {
-    //    isValid = false;
-    //    newErrors.location = "location is required";
-    //  }
-    //  if (!isValid) {
-    //    setErrors(newErrors);
-    //    return;
-    //  }
+ 
     e.preventDefault();
     try {
       const formData = new FormData();
@@ -166,7 +114,7 @@ const AddCarfrom = () => {
       <div className="w-[100%]  flex justify-center px-5 py-8">
         <div className="w-[50%] px-5 py-8 rounded-lg border-4 bg-black">
           <h1 className=" font-extrabold text-[#00df9a]">ADD CAR</h1>
-          <form action="" onSubmit={handleInputChange}>
+          <form action="" onSubmit={handleInputChange} >
             <div className="relative z-0 w-full mb-6 group mt-2">
               <input
                 type="name"

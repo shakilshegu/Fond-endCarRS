@@ -17,7 +17,7 @@ const FullViewCar = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <img
-                  src={data?.Images}
+                  src={data?.Images[0]}
                   alt="Car"
                   className="w-full rounded-lg shadow-lg"
                 />

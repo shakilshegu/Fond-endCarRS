@@ -156,7 +156,7 @@ const ViewCar = () => {
                   >
                     <span>
                       {" "}
-                      <img className="w-[120px]" src={data?.Images} alt="" />
+                      <img className="w-[120px]" src={data?.Images[0]} alt="" />
                     </span>
                   </th>
                   <td className="w-[400px] px-6 py-4">{data?.description}</td>
