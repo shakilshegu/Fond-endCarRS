@@ -12,17 +12,23 @@ function Cards() {
   const [car, setCar] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
 
-  // const HandleClick = () => {
-  //   navigate("/FullviewCar");
-  // }
+  const handledetail = () => {
+    if(localStorage.token){
+      navigate("/ViewCars", {
+      });
+    }else{
+      navigate("/login", {
+      });
+    }
+  };
 
   const getData = async () => {
     try {
       dispatch(showLoading());
-      const response = await AxiosUser(`CarList`);
+      const response = await AxiosUser(`CarDetails`);
       dispatch(hideLoading());
       if (response.data.success) {
-        setCar(response.data.cardata);
+        setCar(response.data.data);
       } else {
         toast.error(response.data.message);
       }
@@ -73,7 +79,7 @@ function Cards() {
           >
             <div className="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
               <img
-                src={carItem.Images[0]}
+                src={carItem?.Images[0]}
                 alt=""
                 className="h-full w-full object-cover"
               />
@@ -81,20 +87,21 @@ function Cards() {
             <div className="p-6">
               <div className="mb-2 flex items-center justify-between">
                 <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-                  {carItem.name}
+                  {carItem?.name}
                 </p>
                 <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-                  ${carItem.price}/day
+                  ${carItem?.price}/day
                 </p>
               </div>
               <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
-                {carItem.description}
+                {carItem?.description}
               </p>
             </div>
             <div className="p-6 pt-0">
               <button
                 className="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                 type="button" 
+                onClick={() => handledetail()}
               >
                 View More
               </button>
