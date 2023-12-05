@@ -19,10 +19,17 @@ import Invoice from "../components/User/Invoice/Invoice";
 import CurrentOrders from "../components/User/Orders/CurrentOrders";
 import NotFound from "../404";
 import Constacts from "../components/User/Contacts/Constacts";
-
+import { useSelector } from "react-redux";
+import "./UserRoute.css"
 const UserRoute = () => {
+  const { loading } = useSelector((state) => state.alerts);
   return (
     <>
+       {loading && (
+        <div className="spinner-parent">
+        <div className="spinner-border text-primary"  role="status"></div>
+      </div>
+      )}
       <Toaster position="top-center" role="status" />
       <Routes>
         <Route path="/*" element={<HomePage />} />

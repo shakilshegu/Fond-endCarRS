@@ -109,7 +109,7 @@ const CurrentOrders = () => {
                           <div className="flex-shrink-0 ">
                             <img
                               className="w-[300px]  "
-                              src={data.CarId.Images[0]}
+                              src={data?.CarId?.Images[0]}
                               alt=""
                             />
                           </div>
