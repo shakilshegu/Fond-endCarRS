@@ -40,7 +40,7 @@ const ViewCar = () => {
     }
   };
   useEffect(() => {
-    getData();
+      getData();
   }, []);
 
   const filteredCar = car
@@ -78,6 +78,7 @@ const ViewCar = () => {
   const visibleCars = filteredCar.slice(startIndex, endIndex);
 
   return (
+    <>
     <div>
       <Header />
       <p className="text-lgc justify-center  font-bold items-center text-center text-3xl mt-4 ">
@@ -168,7 +169,7 @@ const ViewCar = () => {
                 <img
                   className="w-full rounded-t-lg"
                   src={data?.Images[0]}
-                  alt=""
+                  alt="car images"
                 />
               </i>
               <div className="p-5">
@@ -242,8 +243,9 @@ const ViewCar = () => {
           </nav>
         </div>
       </div>
-      <Footer />
     </div>
+     <Footer/>
+     </>
   );
 };
 

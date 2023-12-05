@@ -4,6 +4,13 @@ import Typed from "react-typed";
 
 function Hero() {
   const navigate = useNavigate();
+  const langing = ()=>{
+    if(localStorage.token){
+      navigate("/ViewCars")
+    }else{
+      navigate("/login")
+    }
+  }
   return (
     <div
       className="min-h-screen flex bg-black flex-col justify-center sm:py-12 bg-cover bg-center text-white"
@@ -36,7 +43,7 @@ function Hero() {
           need a stylish ride for a weekend getaway, we've got you covered.
         </p>
         <button
-          onClick={() => navigate("/")}
+          onClick={() => langing()}
           className="bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3  text-black"
         >
           Get started
