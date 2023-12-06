@@ -67,7 +67,6 @@ const ViewCar = () => {
     });
   const availableLocations = [...new Set(car.map((data) => data.location))];
   const availableBrand = [...new Set(car.map((data) => data.brand))];
-  const availableYear = [...new Set(car.map((data) => data.year))];
 
   const itemsPerPage = 4;
   const [currentPage, setCurrentPage] = useState(1);
@@ -158,6 +157,7 @@ const ViewCar = () => {
           </button>
         </div>
       </div>
+      
       <div className="w-[100%]  flex justify-center px-5 py-8">
         <div className="grid w-[100%] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
           {visibleCars.map((data, index) => (

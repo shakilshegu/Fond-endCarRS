@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef} from "react";
 import { useNavigate } from "react-router-dom";
 import { AxiosUser } from "../../../Api/Axiosinstance";
 import { toast } from "react-hot-toast";
@@ -9,11 +9,18 @@ const Otppage = () => {
   const dispatch = useDispatch();
   const [otp, setOtp] = useState(Array(4).fill(""));
   const navigate = useNavigate();
+  const inputRefs  = useRef([])
 
   const handleOtpChange = (index, value) => {
     const newOtp = [...otp];
     newOtp[index] = value;
     setOtp(newOtp);
+    
+    // Move the next input field
+
+    if (value !== "" && index < otp.length - 1) {
+      inputRefs.current[index + 1].focus();
+    }
   };
 
   const handleVerify = async (e) => {
@@ -56,6 +63,7 @@ const Otppage = () => {
                     {otp.map((digit, index) => (
                       <div key={index} className="w-16 h-16 ">
                         <input
+                          ref={(el) => (inputRefs.current[index] = el)}
                           className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700"
                           type="text"
                           name={`otp-${index}`}
