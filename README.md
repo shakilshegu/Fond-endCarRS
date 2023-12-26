@@ -12,7 +12,16 @@ An Online Car Rental Application designed to provide users with an efficient and
 - [License](#license)
 
 
-Replace `./images/screenshot1.png` and `./images/screenshot2.png` with the actual paths or URLs to your project's images. You can also add more images as needed.
+## Images
+
+Include screenshots or other images related to your project. You can showcase different features or provide visual documentation.
+
+![Screenshot 1](C:\Users\DELL\OneDrive\Pictures\Screenshots\Screenshot 2023-12-26 112606.png)
+*Caption for Screenshot 1*
+
+![Screenshot 2](./images/screenshot2.png)
+*Caption for Screenshot 2*
+
 
 
 ## Features
