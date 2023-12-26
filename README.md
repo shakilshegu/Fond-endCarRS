@@ -16,7 +16,7 @@ An Online Car Rental Application designed to provide users with an efficient and
 
 Include screenshots or other images related to your project. You can showcase different features or provide visual documentation.
 
-![Screenshot 1](./images/Screenshot.png)
+![Screenshot 1](./Screenshot.png)
 *Caption for Screenshot 1*
 
 ![Screenshot 2](./images/screenshot2.png)
