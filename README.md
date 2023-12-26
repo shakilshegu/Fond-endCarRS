@@ -11,6 +11,10 @@ An Online Car Rental Application designed to provide users with an efficient and
 - [Contributing](#contributing)
 - [License](#license)
 
+
+Replace `./images/screenshot1.png` and `./images/screenshot2.png` with the actual paths or URLs to your project's images. You can also add more images as needed.
+
+
 ## Features
 
 1. Followed MVC Architecture for building the project.
